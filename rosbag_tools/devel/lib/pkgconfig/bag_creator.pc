@@ -1,0 +1,8 @@
+prefix=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/devel
+
+Name: bag_creator
+Description: Description of bag_creator
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

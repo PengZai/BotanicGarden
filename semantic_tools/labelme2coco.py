@@ -166,6 +166,6 @@ class MyEncoder(json.JSONEncoder):
 
 
 # you need to modify the path according to your environment
-labelme_json = glob.glob('train/*.json')
+labelme_json = glob.glob('/media/spiderman/zhipeng_usb/datasets/BotanicGarden/1005-07/imagezip/semantic_1005_07/07/*.json')
 
-labelme2coco(labelme_json, 'annotations/train.json')
+labelme2coco(labelme_json, '/media/spiderman/zhipeng_8t/datasets/BotanicGarden/1005-07/imagezip/COCO_semantic_1005_07/train.json')

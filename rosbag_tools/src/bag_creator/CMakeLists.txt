@@ -160,6 +160,20 @@ target_link_libraries(bag_extractor_node
   # ${OpenCV_LIBS}
 )
 
+add_executable(bag_imu_extractor_node src/bag_imu_extractor_node.cpp)
+target_link_libraries(bag_imu_extractor_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  # ${OpenCV_LIBS}
+)
+
+add_executable(bag_gt_extractor_node src/bag_gt_extractor_node.cpp)
+target_link_libraries(bag_gt_extractor_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  # ${OpenCV_LIBS}
+)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use

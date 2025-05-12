@@ -1,6 +1,6 @@
 import os,sys
 
-path = "1/"
+path = "/media/spiderman/zhipeng_8t/datasets/BotanicGarden/1005-07/imagezip/semantic_1005_07/07"
 dirs = os.listdir(path)
 
 for file in dirs:

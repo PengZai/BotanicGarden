@@ -30,6 +30,7 @@ int main(int argc, char **argv)
 
     // Image topics to load
     std::vector<std::string> topics;
+    std::vector<std::pair<std::string, std::string>> pic_timestamps;
     topics.push_back(l_cam);
 
     rosbag::View view(bag, rosbag::TopicQuery(topics));
@@ -50,14 +51,38 @@ int main(int argc, char **argv)
             std::cout << time << std::endl;
             sensor_msgs::Image::ConstPtr l_img = m.instantiate<sensor_msgs::Image>();
             if (l_img != NULL){
+                ros::Time timestamp = l_img->header.stamp;
                 cv_bridge::CvImagePtr cv_ptr;
                 cv_ptr = cv_bridge::toCvCopy(l_img, l_img->encoding);
-                std::string s = std::to_string(value);
-                std::string file_name = output_folder_path + output_image_prefix + s + output_image_format;                
+                std::string str_time = std::to_string(timestamp.toNSec());
+                std::string image_name = str_time + output_image_format;
+                pic_timestamps.push_back(std::pair<std::string, std::string>(str_time, image_name));
+                std::string file_name = output_folder_path + output_image_prefix + image_name;                
                 cv::imwrite(file_name, cv_ptr->image);
             }
         }
     }
+
+
+    std::string replaced_l_cam = l_cam; 
+    std::replace(replaced_l_cam.begin(), replaced_l_cam.end(), '/', '_');
+
+    std::ofstream csv_file(output_folder_path + replaced_l_cam + "_pic_timestamps.csv");
+    if (!csv_file.is_open()) {
+        std::cerr << "Failed to open file for writing.\n";
+        return 1;
+    }
+
+    // Write header
+    csv_file << "#timestamp [ns],filename\n";
+
+    // Write data
+    for (const auto& entry : pic_timestamps) {
+        csv_file << entry.first << "," << entry.second << "\n";
+    }
+
+    csv_file.close();
+    std::cout << "pic_timestamps.csv created successfully.\n";
     
     bag.close();
 

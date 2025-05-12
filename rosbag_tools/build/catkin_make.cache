@@ -1,0 +1,2 @@
+bag_creator
+-DCATKIN_DEVEL_PREFIX=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/devel -DCMAKE_INSTALL_PREFIX=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/install -G Unix Makefiles
