@@ -213,6 +213,21 @@ bag_creator_node/fast:
 .PHONY : bag_creator_node/fast
 
 # Convenience name for target.
+bag_creator/CMakeFiles/bag_depth_append_node.dir/rule:
+	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f CMakeFiles/Makefile2 bag_creator/CMakeFiles/bag_depth_append_node.dir/rule
+.PHONY : bag_creator/CMakeFiles/bag_depth_append_node.dir/rule
+
+# Convenience name for target.
+bag_depth_append_node: bag_creator/CMakeFiles/bag_depth_append_node.dir/rule
+
+.PHONY : bag_depth_append_node
+
+# fast build rule for target.
+bag_depth_append_node/fast:
+	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/build
+.PHONY : bag_depth_append_node/fast
+
+# Convenience name for target.
 bag_creator/CMakeFiles/bag_append_node.dir/rule:
 	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f CMakeFiles/Makefile2 bag_creator/CMakeFiles/bag_append_node.dir/rule
 .PHONY : bag_creator/CMakeFiles/bag_append_node.dir/rule
@@ -821,6 +836,33 @@ src/bag_creator_node.cpp.s:
 	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f bag_creator/CMakeFiles/bag_creator_node.dir/build.make bag_creator/CMakeFiles/bag_creator_node.dir/src/bag_creator_node.cpp.s
 .PHONY : src/bag_creator_node.cpp.s
 
+src/bag_depth_append_node.o: src/bag_depth_append_node.cpp.o
+
+.PHONY : src/bag_depth_append_node.o
+
+# target to build an object file
+src/bag_depth_append_node.cpp.o:
+	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/src/bag_depth_append_node.cpp.o
+.PHONY : src/bag_depth_append_node.cpp.o
+
+src/bag_depth_append_node.i: src/bag_depth_append_node.cpp.i
+
+.PHONY : src/bag_depth_append_node.i
+
+# target to preprocess a source file
+src/bag_depth_append_node.cpp.i:
+	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/src/bag_depth_append_node.cpp.i
+.PHONY : src/bag_depth_append_node.cpp.i
+
+src/bag_depth_append_node.s: src/bag_depth_append_node.cpp.s
+
+.PHONY : src/bag_depth_append_node.s
+
+# target to generate assembly for a file
+src/bag_depth_append_node.cpp.s:
+	cd /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build && $(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/src/bag_depth_append_node.cpp.s
+.PHONY : src/bag_depth_append_node.cpp.s
+
 src/bag_extractor_node.o: src/bag_extractor_node.cpp.o
 
 .PHONY : src/bag_extractor_node.o
@@ -914,6 +956,7 @@ help:
 	@echo "... bag_imu_extractor_node"
 	@echo "... list_install_components"
 	@echo "... bag_creator_node"
+	@echo "... bag_depth_append_node"
 	@echo "... bag_append_node"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -961,6 +1004,9 @@ help:
 	@echo "... src/bag_creator_node.o"
 	@echo "... src/bag_creator_node.i"
 	@echo "... src/bag_creator_node.s"
+	@echo "... src/bag_depth_append_node.o"
+	@echo "... src/bag_depth_append_node.i"
+	@echo "... src/bag_depth_append_node.s"
 	@echo "... src/bag_extractor_node.o"
 	@echo "... src/bag_extractor_node.i"
 	@echo "... src/bag_extractor_node.s"

@@ -41,6 +41,7 @@
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/bag_imu_extractor_node.dir
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/list_install_components.dir
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/bag_creator_node.dir
+/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/bag_depth_append_node.dir
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/bag_append_node.dir
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
 /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/bag_creator/CMakeFiles/geometry_msgs_generate_messages_lisp.dir

@@ -1,0 +1,12 @@
+# dataset folder absolute paths of depth named with timestamp+.tiff:
+depth_folder_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/DepthAnythingV2Depth/depth
+
+# bag path
+bag_path: "/media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/1018_00_img10hz600p_with_depth.bag"
+
+
+# output folder path (must exist):
+output_folder_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/1018_00_img10hz600p_with_learned_depth
+
+# depth topics in rosbag:
+depth_topic: /dalsa_gray/left/depth_anything_v2_metric_depth

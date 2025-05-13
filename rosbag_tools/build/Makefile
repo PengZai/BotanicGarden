@@ -324,6 +324,19 @@ bag_creator_node/fast:
 .PHONY : bag_creator_node/fast
 
 #=============================================================================
+# Target rules for targets named bag_depth_append_node
+
+# Build rule for target.
+bag_depth_append_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bag_depth_append_node
+.PHONY : bag_depth_append_node
+
+# fast build rule for target.
+bag_depth_append_node/fast:
+	$(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/build
+.PHONY : bag_depth_append_node/fast
+
+#=============================================================================
 # Target rules for targets named bag_append_node
 
 # Build rule for target.
@@ -829,6 +842,7 @@ help:
 	@echo "... bag_gt_extractor_node"
 	@echo "... bag_imu_extractor_node"
 	@echo "... bag_creator_node"
+	@echo "... bag_depth_append_node"
 	@echo "... bag_append_node"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_lisp"

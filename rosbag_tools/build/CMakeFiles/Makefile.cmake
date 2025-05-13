@@ -249,6 +249,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "bag_creator/CMakeFiles/bag_gt_extractor_node.dir/DependInfo.cmake"
   "bag_creator/CMakeFiles/bag_imu_extractor_node.dir/DependInfo.cmake"
   "bag_creator/CMakeFiles/bag_creator_node.dir/DependInfo.cmake"
+  "bag_creator/CMakeFiles/bag_depth_append_node.dir/DependInfo.cmake"
   "bag_creator/CMakeFiles/bag_append_node.dir/DependInfo.cmake"
   "bag_creator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "bag_creator/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake"

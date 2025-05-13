@@ -82,6 +82,7 @@ clean: bag_creator/clean
 bag_creator/all: bag_creator/CMakeFiles/bag_gt_extractor_node.dir/all
 bag_creator/all: bag_creator/CMakeFiles/bag_imu_extractor_node.dir/all
 bag_creator/all: bag_creator/CMakeFiles/bag_creator_node.dir/all
+bag_creator/all: bag_creator/CMakeFiles/bag_depth_append_node.dir/all
 bag_creator/all: bag_creator/CMakeFiles/bag_append_node.dir/all
 bag_creator/all: bag_creator/CMakeFiles/bag_extractor_node.dir/all
 
@@ -96,6 +97,7 @@ bag_creator/preinstall:
 bag_creator/clean: bag_creator/CMakeFiles/bag_gt_extractor_node.dir/clean
 bag_creator/clean: bag_creator/CMakeFiles/bag_imu_extractor_node.dir/clean
 bag_creator/clean: bag_creator/CMakeFiles/bag_creator_node.dir/clean
+bag_creator/clean: bag_creator/CMakeFiles/bag_depth_append_node.dir/clean
 bag_creator/clean: bag_creator/CMakeFiles/bag_append_node.dir/clean
 bag_creator/clean: bag_creator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 bag_creator/clean: bag_creator/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
@@ -336,7 +338,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=13,14 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=15,16 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -363,7 +365,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=11,12 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=13,14 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -390,7 +392,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=17,18 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=19,20 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -417,7 +419,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=15,16 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=17,18 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -444,7 +446,7 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 bag_creator/CMakeFiles/bag_gt_extractor_node.dir/all:
 	$(MAKE) -f bag_creator/CMakeFiles/bag_gt_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_gt_extractor_node.dir/depend
 	$(MAKE) -f bag_creator/CMakeFiles/bag_gt_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_gt_extractor_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=7,8 "Built target bag_gt_extractor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=9,10 "Built target bag_gt_extractor_node"
 .PHONY : bag_creator/CMakeFiles/bag_gt_extractor_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -471,7 +473,7 @@ bag_creator/CMakeFiles/bag_gt_extractor_node.dir/clean:
 bag_creator/CMakeFiles/bag_imu_extractor_node.dir/all:
 	$(MAKE) -f bag_creator/CMakeFiles/bag_imu_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_imu_extractor_node.dir/depend
 	$(MAKE) -f bag_creator/CMakeFiles/bag_imu_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_imu_extractor_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=9,10 "Built target bag_imu_extractor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=11,12 "Built target bag_imu_extractor_node"
 .PHONY : bag_creator/CMakeFiles/bag_imu_extractor_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -517,6 +519,33 @@ bag_creator_node: bag_creator/CMakeFiles/bag_creator_node.dir/rule
 bag_creator/CMakeFiles/bag_creator_node.dir/clean:
 	$(MAKE) -f bag_creator/CMakeFiles/bag_creator_node.dir/build.make bag_creator/CMakeFiles/bag_creator_node.dir/clean
 .PHONY : bag_creator/CMakeFiles/bag_creator_node.dir/clean
+
+#=============================================================================
+# Target rules for target bag_creator/CMakeFiles/bag_depth_append_node.dir
+
+# All Build rule for target.
+bag_creator/CMakeFiles/bag_depth_append_node.dir/all:
+	$(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/depend
+	$(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=5,6 "Built target bag_depth_append_node"
+.PHONY : bag_creator/CMakeFiles/bag_depth_append_node.dir/all
+
+# Build rule for subdir invocation for target.
+bag_creator/CMakeFiles/bag_depth_append_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 bag_creator/CMakeFiles/bag_depth_append_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles 0
+.PHONY : bag_creator/CMakeFiles/bag_depth_append_node.dir/rule
+
+# Convenience name for target.
+bag_depth_append_node: bag_creator/CMakeFiles/bag_depth_append_node.dir/rule
+
+.PHONY : bag_depth_append_node
+
+# clean rule for target.
+bag_creator/CMakeFiles/bag_depth_append_node.dir/clean:
+	$(MAKE) -f bag_creator/CMakeFiles/bag_depth_append_node.dir/build.make bag_creator/CMakeFiles/bag_depth_append_node.dir/clean
+.PHONY : bag_creator/CMakeFiles/bag_depth_append_node.dir/clean
 
 #=============================================================================
 # Target rules for target bag_creator/CMakeFiles/bag_append_node.dir
@@ -930,7 +959,7 @@ bag_creator/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 bag_creator/CMakeFiles/bag_extractor_node.dir/all:
 	$(MAKE) -f bag_creator/CMakeFiles/bag_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_extractor_node.dir/depend
 	$(MAKE) -f bag_creator/CMakeFiles/bag_extractor_node.dir/build.make bag_creator/CMakeFiles/bag_extractor_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=5,6 "Built target bag_extractor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spiderman/vscode_projects/BotanicGarden/rosbag_tools/build/CMakeFiles --progress-num=7,8 "Built target bag_extractor_node"
 .PHONY : bag_creator/CMakeFiles/bag_extractor_node.dir/all
 
 # Build rule for subdir invocation for target.

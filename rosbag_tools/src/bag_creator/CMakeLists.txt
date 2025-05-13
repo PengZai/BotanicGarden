@@ -146,6 +146,13 @@ target_link_libraries(bag_append_node
   # ${OpenCV_LIBS}
 )
 
+add_executable(bag_depth_append_node src/bag_depth_append_node.cpp)
+target_link_libraries(bag_depth_append_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  # ${OpenCV_LIBS}
+)
+
 add_executable(bag_creator_node src/bag_creator_node.cpp)
 target_link_libraries(bag_creator_node
   ${catkin_LIBRARIES}
@@ -173,6 +180,7 @@ target_link_libraries(bag_gt_extractor_node
   ${YAML_CPP_LIBRARIES}
   # ${OpenCV_LIBS}
 )
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

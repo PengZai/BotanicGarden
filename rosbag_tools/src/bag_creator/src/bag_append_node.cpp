@@ -84,12 +84,12 @@ int main(int argc, char **argv)
         std::vector<double> vTimeStamps_rgb;
         std::ifstream fTimes;
         std::string strPathTimes_whole = config_node["timestamp_file_path"].as<std::string>();
-        std::string strPathTimes = strPathTimes_whole + bag_name + "_gray.txt";
+        std::string strPathTimes = strPathTimes_whole + "time_gray.txt";
         fTimes.open(strPathTimes_whole.c_str());
         vTimeStamps.reserve(40000);
 
         std::ifstream fTimes_rgb;
-        std::string strPathTimes_rgb = strPathTimes_whole + bag_name + "_color.txt";
+        std::string strPathTimes_rgb = strPathTimes_whole + "time_color.txt";
         fTimes_rgb.open(strPathTimes_rgb.c_str());
         vTimeStamps_rgb.reserve(40000);
 
