@@ -1,12 +1,13 @@
 # dataset folder absolute paths of depth named with timestamp+.tiff:
-depth_folder_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/DepthAnythingV2Depth/depth
+depth_folder_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_Sep2025/RASP_EASY/colmap_dense_depth/depth
 
 # bag path
-bag_path: "/media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/1018_00_img10hz600p_with_depth.bag"
+bag_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_Sep2025/RASP_EASY/RASP_EASY_with_depth.bag
 
 
 # output folder path (must exist):
-output_folder_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/1018_00_img10hz600p_with_learned_depth
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_Sep2025/RASP_EASY/RASP_EASY_with_learned_depth_v1
 
 # depth topics in rosbag:
-depth_topic: /dalsa_gray/left/depth_anything_v2_metric_depth
+depth_topic: /dalsa_gray/left/colmap_dense_depth
+# depth_topic: /dalsa_gray/left/colmap_dense_depth

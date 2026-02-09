@@ -31,6 +31,8 @@ int main(int argc, char **argv)
     // Image topics to load
     std::vector<std::string> topics;
     std::vector<std::pair<std::string, std::string>> pic_timestamps;
+    std::vector<std::pair<std::string, std::string>> image_name_timestamps;
+
     topics.push_back(l_cam);
 
     rosbag::View view(bag, rosbag::TopicQuery(topics));
@@ -40,25 +42,53 @@ int main(int argc, char **argv)
 
     // std::cout << "ROS bag time: " << (bag_end_time-bag_begin_time).toSec() << "(s)" << std::endl;
     int value = 0;
-    BOOST_FOREACH(rosbag::MessageInstance const m, view){
-        if (m.getTopic() == l_cam || ("/" + m.getTopic() == l_cam))
-        {
+    BOOST_FOREACH(rosbag::MessageInstance const m, view) {
+        if (m.getTopic() == l_cam || ("/" + m.getTopic() == l_cam)) {
             value++;
-            if (value % down_sample_ratio != 0){
+
+            if (value % down_sample_ratio != 0) {
                 continue;
             }
+
             const ros::Time time = m.getTime();
-            std::cout << time << std::endl;
+            std::cout << value << ") " <<"Bag Time: " << time << std::endl;
+
+            cv::Mat image;
+
+            // Try raw Image
             sensor_msgs::Image::ConstPtr l_img = m.instantiate<sensor_msgs::Image>();
-            if (l_img != NULL){
-                ros::Time timestamp = l_img->header.stamp;
-                cv_bridge::CvImagePtr cv_ptr;
-                cv_ptr = cv_bridge::toCvCopy(l_img, l_img->encoding);
+            if (l_img) {
+                try {
+                    image = cv_bridge::toCvCopy(l_img, "bgr8")->image;
+                } catch (cv_bridge::Exception& e) {
+                    ROS_ERROR("cv_bridge exception: %s", e.what());
+                    continue;
+                }
+            }
+
+            // Try compressed Image
+            sensor_msgs::CompressedImage::ConstPtr l_img_comp = m.instantiate<sensor_msgs::CompressedImage>();
+            if (l_img_comp) {
+                try {
+                    image = cv::imdecode(cv::Mat(l_img_comp->data), cv::IMREAD_COLOR);
+                } catch (cv::Exception& e) {
+                    ROS_ERROR("cv::imdecode exception: %s", e.what());
+                    continue;
+                }
+            }
+
+            if (!image.empty()) {
+                ros::Time timestamp = (l_img ? l_img->header.stamp : l_img_comp->header.stamp);
+                std::string time_in_seconds = std::to_string(timestamp.sec) + "." + std::to_string(timestamp.nsec);
+                std::cout << value << ") " << "Source Time: " << time_in_seconds << std::endl;
+
                 std::string str_time = std::to_string(timestamp.toNSec());
                 std::string image_name = str_time + output_image_format;
-                pic_timestamps.push_back(std::pair<std::string, std::string>(str_time, image_name));
-                std::string file_name = output_folder_path + output_image_prefix + image_name;                
-                cv::imwrite(file_name, cv_ptr->image);
+                pic_timestamps.push_back(std::make_pair(str_time, image_name));
+                image_name_timestamps.push_back(std::make_pair(str_time, time_in_seconds));
+                std::string file_name = output_folder_path + output_image_prefix + image_name;
+
+                cv::imwrite(file_name, image);
             }
         }
     }
@@ -83,6 +113,24 @@ int main(int argc, char **argv)
 
     csv_file.close();
     std::cout << "pic_timestamps.csv created successfully.\n";
+
+
+    std::ofstream txt_file(output_folder_path + replaced_l_cam + "_image_name_timestamps.txt");
+    if (!txt_file.is_open()) {
+        std::cerr << "Failed to open file for writing.\n";
+        return 1;
+    }
+
+    // Write header
+    // txt_file << "#timestamp [ns],filename\n";
+
+    // Write data
+    for (const auto& entry : image_name_timestamps) {
+        txt_file << entry.first << " " << entry.second << "\n";
+    }
+
+    txt_file.close();
+    std::cout << "_image_name_timestamps.txt created successfully.\n";
     
     bag.close();
 

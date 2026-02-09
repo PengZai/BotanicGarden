@@ -1,0 +1,11 @@
+# down-sample of dataset frequency:
+down_sample_ratio: 1
+
+# bag absolute path
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/fast_livo2_datasets/HKU_Landmark/
+bag_name: HKU_Landmark.bag
+# output folder path (must exist, for image saving):
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/fast_livo2_datasets/HKU_Landmark/livox/
+
+# cam topics in rosbag:
+lidar_topic: "/livox/lidar"

@@ -19,7 +19,6 @@ int main(int argc, char **argv)
 
     std::string output_folder_path = config_node["output_folder_path"].as<std::string>();
     std::string output_imu_prefix = config_node["output_imu_prefix"].as<std::string>();
-    std::string output_imu_format = config_node["output_imu_format"].as<std::string>();
 
     bag.open(bag_path, rosbag::bagmode::Read);
 
@@ -35,9 +34,16 @@ int main(int argc, char **argv)
     rosbag::View view(bag, rosbag::TopicQuery(topics));
 
 
-    std::ofstream csv_file(output_folder_path + "imu_data" + output_imu_format);
+    std::ofstream csv_file(output_folder_path + "imu_data" + ".csv");
     if (!csv_file.is_open()) {
         std::cerr << "Failed to open file for writing.\n";
+        return 1;
+    }
+
+    // TXT file (e.g. space-separated)
+    std::ofstream txt_file(output_folder_path + "imu_data.txt");
+    if (!txt_file.is_open()) {
+        std::cerr << "Failed to open TXT file for writing.\n";
         return 1;
     }
 
@@ -45,6 +51,10 @@ int main(int argc, char **argv)
     csv_file << "#timestamp [ns],"
     << "w_RS_S_x [rad s^-1],w_RS_S_y [rad s^-1],w_RS_S_z [rad s^-1],"
     << "a_RS_S_x [m s^-2],a_RS_S_y [m s^-2],a_RS_S_z [m s^-2]\n";
+
+    // TXT header (you can format however you like)
+    txt_file << "# timestamp[ns] w.x w.y w.z a.x a.y a.z\n";
+
 
     int value = 0;
     BOOST_FOREACH(rosbag::MessageInstance const m, view){
@@ -72,6 +82,10 @@ int main(int argc, char **argv)
                     csv_file << timestamp.toNSec() << ","
                     << wx << "," << wy << "," << wz << ","
                     << ax << "," << ay << "," << az << "\n";
+
+                    txt_file << timestamp.toNSec() << " "
+                    << wx << " " << wy << " " << wz << " "
+                    << ax << " " << ay << " " << az << "\n";
             }
         }
     }
@@ -80,7 +94,9 @@ int main(int argc, char **argv)
 
   
     csv_file.close();
-    std::cout << "imu_data.csv created successfully.\n";
+    txt_file.close();
+
+    std::cout << "imu_data.csv and imu_data.txt created successfully.\n";
     
     bag.close();
 

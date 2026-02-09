@@ -5,7 +5,7 @@ import skimage.io as io
 import cv2
 #from labelme import utils
 from image import img_b64_to_arr
-#
+import labelme
 import numpy as np
 import glob
 import PIL.Image
@@ -15,7 +15,6 @@ from sklearn.model_selection import train_test_split
 import yaml
 
 import os
-
 
 class labelme2yolo(object):
     def __init__(self, labelme_json=[], output_dir="."):
@@ -71,7 +70,7 @@ class labelme2yolo(object):
     def normalize_points(self, points):
         for point in points:
             point[0] = point[0]/self.width
-            point[1] = point[1]/self.width
+            point[1] = point[1]/self.height
         return points
      
 
@@ -254,6 +253,9 @@ class MyEncoder(json.JSONEncoder):
             return obj.tolist()
         else:
             return super(MyEncoder, self).default(obj)
+
+
+
 
 
 # you need to modify the path according to your environment

@@ -19,7 +19,6 @@ int main(int argc, char **argv)
 
     std::string output_folder_path = config_node["output_folder_path"].as<std::string>();
     std::string output_gt_prefix = config_node["output_gt_prefix"].as<std::string>();
-    std::string output_gt_format = config_node["output_gt_format"].as<std::string>();
 
     bag.open(bag_path, rosbag::bagmode::Read);
 
@@ -35,7 +34,7 @@ int main(int argc, char **argv)
     rosbag::View view(bag, rosbag::TopicQuery(topics));
 
 
-    std::ofstream csv_file(output_folder_path + "gt_data" + output_gt_format);
+    std::ofstream csv_file(output_folder_path + "gt_data" + ".csv");
     if (!csv_file.is_open()) {
         std::cerr << "Failed to open file for writing.\n";
         return 1;
@@ -48,6 +47,15 @@ int main(int argc, char **argv)
     << "v_RS_R_x [m s^-1], v_RS_R_y [m s^-1], v_RS_R_z [m s^-1],"
     << "b_w_RS_S_x [rad s^-1], b_w_RS_S_y [rad s^-1], b_w_RS_S_z [rad s^-1],"
     << "b_a_RS_S_x [m s^-2], b_a_RS_S_y [m s^-2], b_a_RS_S_z [m s^-2]\n";
+
+
+    std::ofstream txt_file(output_folder_path + "gt_data" + ".txt");
+    if (!txt_file.is_open()) {
+        std::cerr << "Failed to open file for writing.\n";
+        return 1;
+    }
+
+    txt_file << "#timestamp x y z q_x q_y q_z q_w\n";
 
     const double vx = 0, vy = 0, vz =0;
     const double bwx = 0, bwy = 0, bwz = 0;
@@ -78,6 +86,10 @@ int main(int argc, char **argv)
                     << vx << "," << vy << "," << vz << ","
                     << bwx << "," << bwy << "," << bwz << ","
                     << bax << "," << bay << "," << baz << "\n";
+
+                    txt_file << time << " " 
+                    << pos.x << " " << pos.y << " " << pos.z << " "
+                    << ori.w << " " << ori.x << " " << ori.y << " " << ori.z << "\n";
            
             }
         }
@@ -87,6 +99,7 @@ int main(int argc, char **argv)
 
   
     csv_file.close();
+    txt_file.close();
     std::cout << "gt_data.csv created successfully.\n";
     
     bag.close();

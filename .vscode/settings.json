@@ -1,15 +1,8 @@
 {
-    "python.autoComplete.extraPaths": [
-        "/opt/ros/noetic/lib/python3/dist-packages"
-    ],
-    "python.analysis.extraPaths": [
-        "/opt/ros/noetic/lib/python3/dist-packages"
-    ],
     "files.associations": {
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
-        "csignal": "cpp",
         "cstdarg": "cpp",
         "cstddef": "cpp",
         "cstdio": "cpp",
@@ -20,6 +13,7 @@
         "cwctype": "cpp",
         "array": "cpp",
         "atomic": "cpp",
+        "strstream": "cpp",
         "bit": "cpp",
         "bitset": "cpp",
         "chrono": "cpp",
@@ -33,7 +27,6 @@
         "map": "cpp",
         "set": "cpp",
         "unordered_map": "cpp",
-        "unordered_set": "cpp",
         "vector": "cpp",
         "exception": "cpp",
         "algorithm": "cpp",
@@ -51,8 +44,6 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "hash_map": "cpp",
-        "hash_set": "cpp",
         "fstream": "cpp",
         "initializer_list": "cpp",
         "iomanip": "cpp",
@@ -64,6 +55,7 @@
         "new": "cpp",
         "ostream": "cpp",
         "ranges": "cpp",
+        "regex": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
         "stop_token": "cpp",
@@ -74,12 +66,6 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "span": "cpp",
-        "rope": "cpp",
-        "slist": "cpp",
-        "regex": "cpp",
-        "valarray": "cpp",
-        "source_location": "cpp",
-        "any": "cpp"
+        "numbers": "cpp"
     }
 }

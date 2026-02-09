@@ -13,13 +13,29 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   cv_bridge
   sensor_msgs
+  pcl_ros
+  pcl_conversions
   image_transport
+  livox_ros_driver
 )
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(OpenCV REQUIRED)
 find_package(yaml-cpp REQUIRED)
+find_package(PCL REQUIRED)
+
+set( CMAKE_CXX_COMPILER "g++" )
+set( CMAKE_CXX_FLAGS "-std=c++17" )
+
+# Debug or Release
+# set(CMAKE_BUILD_TYPE "Debug")
+
+# # Enable compile optimizations
+# set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fsee -fomit-frame-pointer -fno-signed-zeros -fno-math-errno -funroll-loops")
+
+# # Enable debug flags (use if you want to debug in gdb)
+# set(CMAKE_CXX_FLAGS_DEBUG "-g3 -Wall -Wuninitialized -fno-omit-frame-pointer")
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -124,6 +140,7 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
   ${YAML_CPP_INCLUDEDIR}
+  ${PCL_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -153,6 +170,14 @@ target_link_libraries(bag_depth_append_node
   # ${OpenCV_LIBS}
 )
 
+add_executable(bag_rgb_append_node src/bag_rgb_append_node.cpp)
+target_link_libraries(bag_rgb_append_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  # ${OpenCV_LIBS}
+)
+
+
 add_executable(bag_creator_node src/bag_creator_node.cpp)
 target_link_libraries(bag_creator_node
   ${catkin_LIBRARIES}
@@ -180,6 +205,20 @@ target_link_libraries(bag_gt_extractor_node
   ${YAML_CPP_LIBRARIES}
   # ${OpenCV_LIBS}
 )
+
+add_executable(bag_livox_lidar_extractor_node src/bag_livox_lidar_extractor_node.cpp)
+target_link_libraries(bag_livox_lidar_extractor_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+)
+
+add_executable(bag_velodyne_lidar_extractor_node src/bag_velodyne_lidar_extractor_node.cpp)
+target_link_libraries(bag_velodyne_lidar_extractor_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  ${PCL_LIBRARY_DIRS}
+)
+
 
 
 ## Rename C++ executable without prefix

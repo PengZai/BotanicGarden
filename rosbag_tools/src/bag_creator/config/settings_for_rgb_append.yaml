@@ -1,0 +1,12 @@
+# dataset folder absolute paths of rgb named with timestamp+.tiff:
+rgb_folder_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/datasetTest_2026-02-06-16-14-30/forwardLeft
+
+# bag path
+bag_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/datasetTest_2026-02-06-16-14-30/bak/datasetTest_2026-02-06-16-14-30.bag
+
+
+# output folder path (must exist):
+output_folder_path:  /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/datasetTest_2026-02-06-16-14-30/
+
+# rgb topics in rosbag:
+rgb_topic: /forwardLeft/image_raw

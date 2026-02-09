@@ -1,0 +1,10 @@
+# down-sample of dataset frequency:
+down_sample_ratio: 1
+
+# bag absolute path
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_June2025/
+bag_name: EASY.bag
+# output folder path (must exist, for image saving):
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_June2025/EASY/ouster/
+# cam topics in rosbag:
+lidar_topic: "/ouster/points"

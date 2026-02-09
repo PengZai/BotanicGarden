@@ -2,12 +2,12 @@
 down_sample_ratio: 1
 
 # bag absolute path
-input_bag_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/
-bag_name: 1018_00_img10hz600p.bag
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/datasetTest_2026-02-06-16-14-30/
+bag_name: datasetTest_2026-02-06-16-14-30.bag
 # output folder path (must exist, for image saving):
-output_folder_path: /media/spiderman/zhipeng_8t/datasets/BotanicGarden/1018-00/1018_00_img10hz600p/left_rgb/
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/datasetTest_2026-02-06-16-14-30/forwardLeft/
 output_image_prefix: ""
 output_image_format: .png
 
 # cam topics in rosbag:
-cam_topic: /dalsa_rgb/left/image_raw
+cam_topic: /forwardLeft/image_raw/compressed
