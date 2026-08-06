@@ -1,10 +1,12 @@
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
+#include <iostream>
 
 #include <sensor_msgs/Image.h>
 #include <boost/foreach.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/imgcodecs.hpp>
+#include <string>
 
 #include <yaml-cpp/yaml.h>
 
@@ -78,11 +80,13 @@ int main(int argc, char **argv)
             }
 
             if (!image.empty()) {
-                ros::Time timestamp = (l_img ? l_img->header.stamp : l_img_comp->header.stamp);
-                std::string time_in_seconds = std::to_string(timestamp.sec) + "." + std::to_string(timestamp.nsec);
+                ros::Time ros_timestamp = (l_img ? l_img->header.stamp : l_img_comp->header.stamp);
+
+                std::string str_time = std::to_string(ros_timestamp.toNSec());
+                // std::string time_in_seconds = std::to_string(ros_timestamp.sec) + "." + std::to_string(ros_timestamp.nsec);
+                std::string time_in_seconds = str_time.substr(0, 10) + "." + str_time.substr(10);
                 std::cout << value << ") " << "Source Time: " << time_in_seconds << std::endl;
 
-                std::string str_time = std::to_string(timestamp.toNSec());
                 std::string image_name = str_time + output_image_format;
                 pic_timestamps.push_back(std::make_pair(str_time, image_name));
                 image_name_timestamps.push_back(std::make_pair(str_time, time_in_seconds));

@@ -2,9 +2,36 @@
 down_sample_ratio: 1
 
 # bag absolute path
-input_bag_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_June2025/
-bag_name: EASY.bag
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1005-07/
+bag_name: 1005_07_img10hz600p.bag
 # output folder path (must exist, for image saving):
-output_folder_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_June2025/EASY/ouster/
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1005-07/1005_07_img10hz600p/velodyne_lidar_deskew_with_SOR_denoise/
 # cam topics in rosbag:
-lidar_topic: "/ouster/points"
+lidar_topic: "/velodyne_points"
+
+isDeskew: true
+trajectory_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1005-07/1005_07_GT_output.txt
+# T_pose_lidar:
+#   - [0.9996059436,  0.0278171634,  0.0039704329,  0.1040825099]
+#   - [-0.0278528332,  0.9995700404,  0.0091389488, -0.0101014375]
+#   - [-0.0037145185, -0.0092460501,  0.9999506826,  0.1272539428]
+#   - [0.0,0.0,0.0,1.0] # T_xsens_vlp16  
+T_pose_lidar:
+  - [0.9998459674, -0.0157202487, 0.007804818, 0.0235636103]
+  - [0.0155436449, 0.9996328268, 0.0221947415, -0.0394981788]
+  - [-0.0081508592, -0.0220700073, 0.9997232008, 0.0266328686]
+  - [0.0,0.0,0.0,1.0] # T_imu_os_lidar   
+
+  
+
+# Radial distance limits in meters. Set either value to -1 to disable that side.
+point_cloud_min_distance: 0.5
+point_cloud_max_distance: 400
+
+isFilterPointCloudBySOR: true
+# Number of nearest neighbors used by Statistical Outlier Removal.
+# Larger values make the local density estimate smoother but slower.
+SOR_nb_neighbors: 20
+# Standard deviation multiplier for outlier rejection.
+# Smaller values remove more points; larger values are more conservative.
+SOR_std_ratio: 5.0

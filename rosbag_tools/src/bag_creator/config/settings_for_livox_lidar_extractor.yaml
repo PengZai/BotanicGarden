@@ -2,10 +2,29 @@
 down_sample_ratio: 1
 
 # bag absolute path
-input_bag_path: /media/spiderman/zhipeng_8t1/datasets/fast_livo2_datasets/HKU_Landmark/
-bag_name: HKU_Landmark.bag
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1008-01/
+bag_name: 1008_01_img10hz600p.bag
 # output folder path (must exist, for image saving):
-output_folder_path: /media/spiderman/zhipeng_8t1/datasets/fast_livo2_datasets/HKU_Landmark/livox/
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1008-01/1008_01_img10hz600p/livox_lidar_deskew_with_SOR_denoise/
 
 # cam topics in rosbag:
 lidar_topic: "/livox/lidar"
+
+isDeskew: true
+trajectory_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1008-01/1008_01_GT_output.txt
+T_pose_lidar:
+    - [0.9999582477, 0.0066504051, -0.0063131201, 0.1820599423]
+    - [-0.0065091112, 0.9997331356, 0.0221444382, -0.0205243514]
+    - [0.0064586945, -0.0221024352, 0.9997348068, -0.0493783854]
+    - [0.0,0.0,0.0,1.0] # T_xsens_livox
+
+# Radial distance limits in meters. Set either value to -1 to disable that side.
+point_cloud_min_distance: 0.5
+point_cloud_max_distance: 400
+isFilterPointCloudBySOR: true
+# Number of nearest neighbors used by Statistical Outlier Removal.
+# Larger values make the local density estimate smoother but slower.
+SOR_nb_neighbors: 20
+# Standard deviation multiplier for outlier rejection.
+# Smaller values remove more points; larger values are more conservative.
+SOR_std_ratio: 5.0

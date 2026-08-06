@@ -1,0 +1,7 @@
+# ROS/catkin generated workspace outputs
+/rosbag_tools/build/
+/rosbag_tools/devel/
+
+# Local Codex marker files
+/.codex
+/rosbag_tools/.codex

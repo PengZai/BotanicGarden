@@ -8,9 +8,9 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/devel/lib/bag_creator/bag_extractor_node",
+            "program": "${workspaceFolder}/devel/lib/bag_creator/bag_velodyne_lidar_extractor_node",
             "args": [
-                "${workspaceFolder}/src/bag_creator/config/settings_for_extractor.yaml"
+                "${workspaceFolder}/src/bag_creator/config/settings_for_velodyne_lidar_extractor.yaml"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

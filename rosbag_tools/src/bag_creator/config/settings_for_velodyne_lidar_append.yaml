@@ -1,0 +1,16 @@
+# dataset folder absolute path of lidar pcd files named with timestamp+.pcd:
+lidar_folder_path: /mnt/lboro_nas/personal/Zhipeng/fomo/2025-06-26/green_2025-06-26-11-20/robosense_pcd
+
+# source bag path; if it exists, lidar messages will be appended to it or to its copied output bag.
+# if it does not exist, a new bag with the same filename will be created in output_folder_path.
+bag_path: /mnt/lboro_nas/personal/Zhipeng/fomo/2025-06-26/green_2025-06-26-11-20/green_2025-06-26-11-20.bag
+
+# output folder path (must exist):
+output_folder_path: /mnt/lboro_nas/personal/Zhipeng/fomo/2025-06-26/green_2025-06-26-11-20/
+
+# lidar topic in rosbag:
+lidar_topic: /robosense/points
+
+# lidar frame id:
+frame_id: "robosense"
+

@@ -81,5 +81,6 @@
         "valarray": "cpp",
         "source_location": "cpp",
         "any": "cpp"
-    }
+    },
+    "ROS2.distro": "noetic"
 }

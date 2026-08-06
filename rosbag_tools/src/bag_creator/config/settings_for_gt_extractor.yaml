@@ -2,11 +2,11 @@
 down_sample_ratio: 1
 
 # bag absolute path
-input_bag_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_Nov2025/Easy-1-loop/trajectories/svo2/
-bag_name: svo2_results.bag
-# output folder path (must exist, for image saving):
-output_folder_path: /media/spiderman/zhipeng_8t1/datasets/PolyTunnel_haygrove_Nov2025/Easy-1-loop/trajectories/svo2/
+input_bag_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1008-01/
+bag_name: gt_1008_01_qnew.bag
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1008-01/
 output_gt_prefix: ""
+output_name: 1008_01_GT_output
 
 # cam topics in rosbag:
-gt_topic: /svo/backend_pose_imu_viz
+gt_topic: /gt_poses

@@ -2,10 +2,10 @@
 down_sample_ratio: 1
 
 # bag absolute path
-input_bag_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/imu_test/slow/
-bag_name: slow.bag
+input_bag_path: /mnt/lboro_nas/personal/Zhipeng/hortimul_review/indoor_lab2/
+bag_name: indoor_lab2.bag
 # output folder path (must exist, for image saving):
-output_folder_path: /media/spiderman/zhipeng_8t1/datasets/lab_outside_test/imu_test/slow/
+output_folder_path: /mnt/lboro_nas/personal/Zhipeng/hortimul_review/indoor_lab2/ms_imu/
 output_imu_prefix: ""
 
 # cam topics in rosbag:

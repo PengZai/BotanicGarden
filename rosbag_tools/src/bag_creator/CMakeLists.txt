@@ -24,12 +24,13 @@ find_package(Boost REQUIRED COMPONENTS system)
 find_package(OpenCV REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(PCL REQUIRED)
+find_package(Sophus REQUIRED)
 
 set( CMAKE_CXX_COMPILER "g++" )
 set( CMAKE_CXX_FLAGS "-std=c++17" )
 
 # Debug or Release
-# set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 
 # # Enable compile optimizations
 # set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fsee -fomit-frame-pointer -fno-signed-zeros -fno-math-errno -funroll-loops")
@@ -141,6 +142,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${YAML_CPP_INCLUDEDIR}
   ${PCL_INCLUDE_DIRS}
+  ${Sophus_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -178,6 +180,7 @@ target_link_libraries(bag_rgb_append_node
 )
 
 
+
 add_executable(bag_creator_node src/bag_creator_node.cpp)
 target_link_libraries(bag_creator_node
   ${catkin_LIBRARIES}
@@ -199,6 +202,20 @@ target_link_libraries(bag_imu_extractor_node
   # ${OpenCV_LIBS}
 )
 
+add_executable(bag_imu_append_node src/bag_imu_append_node.cpp)
+target_link_libraries(bag_imu_append_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  # ${OpenCV_LIBS}
+)
+
+add_executable(bag_velodyne_lidar_append_node src/bag_velodyne_lidar_append_node.cpp)
+target_link_libraries(bag_velodyne_lidar_append_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
+
 add_executable(bag_gt_extractor_node src/bag_gt_extractor_node.cpp)
 target_link_libraries(bag_gt_extractor_node
   ${catkin_LIBRARIES}
@@ -210,14 +227,34 @@ add_executable(bag_livox_lidar_extractor_node src/bag_livox_lidar_extractor_node
 target_link_libraries(bag_livox_lidar_extractor_node
   ${catkin_LIBRARIES}
   ${YAML_CPP_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
+
+if(TARGET Sophus::Sophus)
+  target_link_libraries(bag_livox_lidar_extractor_node Sophus::Sophus)
+else()
+  target_link_libraries(bag_livox_lidar_extractor_node ${Sophus_LIBRARIES})
+endif()
+
+add_executable(bag_livox_lidar_convert_to_pointcloud2_node src/bag_livox_lidar_convert_to_pointcloud2_node.cpp)
+target_link_libraries(bag_livox_lidar_convert_to_pointcloud2_node
+  ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 add_executable(bag_velodyne_lidar_extractor_node src/bag_velodyne_lidar_extractor_node.cpp)
 target_link_libraries(bag_velodyne_lidar_extractor_node
   ${catkin_LIBRARIES}
   ${YAML_CPP_LIBRARIES}
-  ${PCL_LIBRARY_DIRS}
+  ${PCL_LIBRARIES}
 )
+
+if(TARGET Sophus::Sophus)
+  target_link_libraries(bag_velodyne_lidar_extractor_node Sophus::Sophus)
+else()
+  target_link_libraries(bag_velodyne_lidar_extractor_node ${Sophus_LIBRARIES})
+endif()
 
 
 

@@ -1,0 +1,20 @@
+# source rosbag to read
+bag_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1018-00/1018_00_img10hz600p.bag
+
+# folder where the converted bag will be written
+# the output bag keeps the same filename as the source bag
+output_folder_path: /media/spiderman/zhipeng_8t1/datasets/BotanicGarden/1018-00/converted/
+
+# Livox CustomMsg topic in the source bag
+source_topic: "/livox/lidar"
+
+# PointCloud2 topic to write into the output bag
+target_topic: "/livox/lidar_pc2"
+
+# optional override for the output PointCloud2 header frame_id
+# leave empty to reuse the frame_id from the Livox message header
+frame_id: ""
+
+# false: replace the CustomMsg stream with PointCloud2 only
+# true: keep the original CustomMsg topic and also add the converted topic
+keep_source_topic: true
